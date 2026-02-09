@@ -28,14 +28,14 @@ All functions are implemented as `pure` functions, meaning they do not read from
 
 ## SimpleMath
 
--This contract consists of 4 functions:
+-This contract consists of 3 functions:
 
 - A simple function for adding two integers.
-  function add(uint256a, uint256 b) public pure returns(uint256 sum);
+  function add(uint256a, uint256 b) public pure returns(uint256 sum) {};
 - A simple function for multiplying two integers.  
-  function mult(uint256a, uint256 b) public pure returns(uint256 product);
+  function mult(uint256a, uint256 b) public pure returns(uint256 product) {};
 - A simple function for dividing two integers.  
-  function div(uint256a, uint256 b) public pure returns(uint256 result)
+  function div(uint256a, uint256 b) public pure returns(uint256 result) {};
 
 ## License
 

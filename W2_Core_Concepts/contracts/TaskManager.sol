@@ -20,6 +20,10 @@ contract TaskManager {
     event TaskCompleted(uint256 id);
     event TaskDeleted(uint256 id);
 
+    /**
+     * @dev Adds a new task.
+     * @param _description The short text description of the task.
+     */
     function addTask(string memory _description) public {
         uint256 taskId = tasks.length;
         tasks.push(
@@ -32,12 +36,20 @@ contract TaskManager {
         emit TaskAdded(taskId, _description, TaskStatus.Pending);
     }
 
+    /**
+     * @dev Completes a given task.
+     * @param _id The index of an existing task in the tasks array.
+     */
     function completeTask(uint256 _id) public {
         require(_id < tasks.length, "Task does not exist");
         tasks[_id].status = TaskStatus.Completed;
         emit TaskCompleted(_id);
     }
 
+    /**
+     * @dev Deletes a given task.
+     * @param _id The index of an existing task in the tasks array.
+     */
     function deleteTask(uint256 _id) public {
         require(_id < tasks.length, "Task does not exist");
         tasks[_id] = tasks[tasks.length - 1];
@@ -46,6 +58,11 @@ contract TaskManager {
         emit TaskDeleted(_id);
     }
 
+    /**
+     * @dev A getter function to provide all the details of a task.
+     * @param _id The index of an existing task in the tasks array.
+     * @return The details of the task.
+     */
     function getTask(uint256 _id) public view returns (Task memory) {
         require(_id < tasks.length, "Task does not exist");
         return tasks[_id];
