@@ -7,8 +7,8 @@ async function main() {
     const priceFeedAddress = "0x694AA1769357215DE4FAC081bf1f309aDC325306";
 
     const TaskManagerV2 = await ethers.getContractFactory("TaskManagerV2");
-    const taskManagerV2 = await TaskManagerV2.deploy(priceFeedAddress);
-    await taskManagerV2.waitForDeployment();
+    const taskManager = await TaskManagerV2.deploy(priceFeedAddress);
+    await taskManager.waitForDeployment();
 
     console.log("TaskManger deployed to:", deployer.address);
 }
