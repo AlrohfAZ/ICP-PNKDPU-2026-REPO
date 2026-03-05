@@ -2,33 +2,44 @@
 
 pragma solidity ^0.8.0;
 
+// Import Chainlink price feed interface to access external price data
 import "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 
 
 
 contract TaskManagerV2 {
+    // Enum used to track the state of a task
     enum TaskStatus {
         Pending,
         Completed
     }
-
+    // Structure representing a task
     struct Task {
         uint256 id;
         string description;
         TaskStatus status;
     }
+    // Minimum ETH price required to add a task
+    // Chainlink price feeds return prices with 8 decimals
     uint256 public constant MIN_PRICE = 1500 * 1e8;
+    // Dynamic array storing all tasks
     Task[] public tasks;
+    // Chainlink price feed contract interface
     AggregatorV3Interface internal priceFeed;
 
+    // Events emitted for frontend/off-chain tracking
     event TaskAdded(uint256 id, string description, TaskStatus status);
     event TaskCompleted(uint256 id);
     event TaskDeleted(uint256 id);
 
+    // Constructor sets the Chainlink price feed address
     constructor(address _priceFeed) {
         priceFeed = AggregatorV3Interface(_priceFeed);
     }
 
+    /**
+     * @dev Fetch the latest ETH price from Chainlink
+     */
     function getLatestPrice() public view returns(int) {
         (, int price, , , ) = priceFeed.latestRoundData();
         return price;
