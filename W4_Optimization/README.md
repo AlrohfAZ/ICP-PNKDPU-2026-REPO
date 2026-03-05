@@ -3,8 +3,6 @@
 This project demonstrates an advanced version of a decentralized **Task Manager Smart Contract** built with Solidity.  
 It introduces **price oracle integration, task ownership, deadlines, and access control**.
 
-The project was developed as part of a **Web3 Smart Contract Development Internship**.
-
 # Table of Contents
 
 - Features
