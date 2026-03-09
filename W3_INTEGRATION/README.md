@@ -8,11 +8,11 @@ It allows users to create, complete, and delete tasks on-chain while using a Cha
 - [Features](#features)
 - [TechStack](#techstack)
 - [Contracts](#contracts)
-- [License](#license)
 - [Chainlink Integration](#chainlinkintegration)
 - [Main Functions](#mainfunctions)
 - [Deployment](#deployment)
 - [Future Improvements](#futureimprovements)
+- [License](#license)
 
 ## Features
 
