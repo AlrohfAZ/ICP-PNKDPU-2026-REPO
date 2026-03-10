@@ -18,7 +18,7 @@ contract TaskManagerV3 {
         TaskStatus status;
     }
 
-    uint256 public constant MIN_PRICE = 1500 * 1e8;
+    uint256 public constant MIN_PRICE = 0;
 
     AggregatorV3Interface internal priceFeed;
 
